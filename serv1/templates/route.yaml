@@ -11,4 +11,4 @@ spec:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: None
-    destinationCACertificate: {{ index (lookup "v1" "Secret" .Release.Namespace "my-tls-secret").data "dst.cer" | b64dec | quote }}
+    destinationCACertificate: {{ lookup "v1" "Secret" .Release.Namespace "my-tls-secret").data }}
