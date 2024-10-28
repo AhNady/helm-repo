@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: my-route
+spec:
+  to:
+    kind: Service
+    name: product-srv
+  port:
+    targetPort: 8050
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: None
+    destinationCACertificate: |-
+      {{ index (lookup "v1" "Secret" .Release.Namespace "my-tls-secret").data "dst.cer" | b64dec | quote }}
