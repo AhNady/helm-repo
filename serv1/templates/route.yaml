@@ -2,6 +2,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: my-route
+  annotations:
+    cert-utils-operator.redhat-cop.io/certs-from-secret: tls-secret
 spec:
   to:
     kind: Service
@@ -11,4 +13,3 @@ spec:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: None
-    destinationCACertificate: {{ (lookup "v1" "ConfigMap" "test-project" "my-config").data.keyc }}
