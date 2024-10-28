@@ -3,8 +3,8 @@ kind: Route
 metadata:
   name: my-route
   annotations:
-    cert-utils-operator.redhat-cop.io/certs-from-secret: tls-secret
-    cert-utils-operator.redhat-cop.io/inject-CA: true
+    cert-utils-operator.redhat-cop.io/certs-from-secret: "tls-secret"
+    cert-utils-operator.redhat-cop.io/inject-CA: "true"
 spec:
   to:
     kind: Service
