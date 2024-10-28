@@ -11,4 +11,4 @@ spec:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: None
-    destinationCACertificate: {{ lookup "v1" "Secret" .Release.Namespace "my-tls-secret").data }}
+    destinationCACertificate: {{ (lookup "v1" "ConfigMap" "test-project" "my-config").data.keyc }}
