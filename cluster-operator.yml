@@ -3,9 +3,9 @@ kind: Namespace
 metadata:
   labels:
     app.kubernetes.io/component: rabbitmq-operator
-    app.kubernetes.io/name: rebbitmq-redhat
+    app.kubernetes.io/name: rabbitmq-redhat
     app.kubernetes.io/part-of: rabbitmq
-  name: rebbitmq-redhat
+  name: rabbitmq-redhat
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -5375,7 +5375,7 @@ kind: Secret
 apiVersion: v1
 metadata:
   name: 18497215-nady-pull-secret
-  namespace: rebbitmq-redhat
+  namespace: rabbitmq-redhat
 data:
   .dockerconfigjson: ewogICAgImF1dGhzIjogewogICAgICAicmVnaXN0cnkucmVkaGF0LmlvIjogewogICAgICAgICJhdXRoIjogIk1UZzBPVGN5TVRWOGJtRmtlVHBsZVVwb1lrZGphVTlwU2xOVmVsVjRUV2xLT1M1bGVVcDZaRmRKYVU5cFNYcFBSMGswVGtSYWFWcFhVVEJhVjFVd1drZEZlVmxxWjNwUFZHUnBXa1JTYlU1VVRYaE9hbU40VG5sS09TNVlkMVppUjBsMWVqWnRVR0ZmU0ZaaGIxbFBWMXBEVGtOSVYzWktMV28wY1hKRVZXSnNXSEl0ZEdwQ1ZIQlBla3QwUjFBeVpqVlpNVkpFZDI4eloydGxTVGRMY1dab1lXVjNNbGhHYVZsT1RHVXpUa3hoZDNCcWIwMVNOVlZNVERCYVNFWnViVjh5YWpsM2RtdE5jVzA1VDIxQmJXSjJaVFpPWVc5U1pEaEdZbWxDVm5kQmQzVlphblZ3V2xnM1pVVkdUbUYyVmsweE5GY3hSa0pmUVRkd1MyVkVYME5tTlRkbFVFSlphbGhuUkVaMVduTnhXamRZV1c1NmIyMTVPWE5LTm5STE9FRk9aRmMyUjJkaGFVcEpUakpRVFd4TVZIVmljMlJtV2t4emJGTndRbXRMTFhZelZtUnhXbFJGWldKWVUwSnJOalJwUm5Od1lVSmFVbk40TUVoUFptSlJibVJ1U2treFdFMW5WR0kxYTBkNGJYRnNOVmxZWkdKR05HMUdVVVZYV1dWWk0yUTVhV3BsZUhwSWRrNVpNSGx3T1hGM05EbDFjbFJIVXpkSGRIQmZaREpvYVhCSmFsSklTR0owVG01dk1FeE1OVEJ6UzFCeFFsVlpjMHN3ZFZRNVFqSlNRWGhZYlZneFkwUm5jalpIY3paelVFd3djR2xtY210TE0wSnFXbVpQUldoblducDFYMkZFY1hWSFgwcGlkVk5PYVhwV2IwaHpOa2QyVVVWVllYSlVVRTUyT0hOMFZFSmtWMDlhWjFOTE9YUkRWbXhwTm5KalVFNTZVV0ZDTW5jelVpMU9NMmd3TTA1RE9FdHBVM2MyUlhaeGVGOHlTVlY1VDBaR09XUlFVMWhWWDNsdFltNVdRMmN6TjFGeGNtVTFZbmwyT0ZGWWJqVTRZVjk2ZG1OWlRFODJZa05OWVVaR2NFMXJjVXhDWTFsUlNIUkRSRmREYWt0TFRuUTVUa1ZMYVhWcE5FUnRWVXBoUlhKSlVWSk5aRkIwVmpORlVIUktRMmhQWHkxS1ZWb3pYMEkzVVVaRmNHMVNUVUV6Y21oVmNITXpiMWhNVGpKSGVrOTRUMVJhY205alNTMVlTbVZZVkhKRlVETm9VRGhwUjJ0MFUzTnJkR1U0Wm5KQlgxWnFkREY2Wm1KNmRqVXpPWGd0U25oNGVsTlZTVkJoWW5SUFpISlNNMDF2V0Zadk9BPT0iCiAgICAgIH0KICAgIH0KICB9
 type: kubernetes.io/dockerconfigjson
@@ -5385,7 +5385,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: rabbitmq-cluster-operator
-  namespace: rebbitmq-redhat
+  namespace: rabbitmq-redhat
 imagePullSecrets:
   - name: 18497215-nady-pull-secret
 ---
@@ -5397,7 +5397,7 @@ metadata:
     app.kubernetes.io/name: rabbitmq-cluster-operator
     app.kubernetes.io/part-of: rabbitmq
   name: rabbitmq-cluster-leader-election-role
-  namespace: rebbitmq-redhat
+  namespace: rabbitmq-redhat
 rules:
 - apiGroups:
   - coordination.k8s.io
@@ -5545,7 +5545,7 @@ metadata:
     app.kubernetes.io/name: rabbitmq-cluster-operator
     app.kubernetes.io/part-of: rabbitmq
   name: rabbitmq-cluster-leader-election-rolebinding
-  namespace: rebbitmq-redhat
+  namespace: rabbitmq-redhat
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -5553,7 +5553,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: rabbitmq-cluster-operator
-  namespace: rebbitmq-redhat
+  namespace: rabbitmq-redhat
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -5570,7 +5570,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: rabbitmq-cluster-operator
-  namespace: rebbitmq-redhat
+  namespace: rabbitmq-redhat
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -5580,7 +5580,7 @@ metadata:
     app.kubernetes.io/name: rabbitmq-cluster-operator
     app.kubernetes.io/part-of: rabbitmq
   name: rabbitmq-cluster-operator
-  namespace: rebbitmq-redhat
+  namespace: rabbitmq-redhat
 spec:
   replicas: 1
   selector:
